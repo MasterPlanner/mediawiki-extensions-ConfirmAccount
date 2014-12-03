@@ -257,7 +257,7 @@ class AccountConfirmSubmission {
 		if ( $this->reason != '' ) {
 			$msg = "confirmaccount-email-body2-pos{$this->type}";
 			# If the user is in a group and there is a welcome for that group, use it
-			if ( $group && !wfEmptyMsg( $msg ) ) {
+			if ( $group && !wfMessage( $msg )->inContentLanguage()->isBlank(); ) {
 				$ebody = $context->msg( $msg, $user->getName(), $p, $this->reason )->inContentLanguage()->text();
 			# Use standard if none found...
 			} else {
